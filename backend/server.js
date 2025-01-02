@@ -22,6 +22,7 @@ const corsOptions = {
     origin: 'https://himmels-zenith-frontend.vercel.app', // Allow only the frontend domain
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Enable cookies if needed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 };
 
 app.use(cors(corsOptions)); // Use CORS with the defined options
