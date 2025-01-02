@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --background: #ffffff;  /* Light background */
+  --color: #000000; /* Light text */
+  --text-1: #6B7280;       /* text-gray-500 */
+  --text-2: #374151;      /* text-gray-700 */
+  --underline: #374151;     /* text-gray-700 */
+  --herotext: #414141;
+  --herotext2: #414141;
+  --latesttext: hsl(214, 14%, 34%); /*text-gray-600*/
+  --policytext:hsl(222, 9%, 65%);  /*text-gray-400*/
+  --newsletter: hsl(217, 26%, 17%); /*text-gray-800*/
+  --input: #fff;
+  --searchbar: hsl(210, 20%, 98%); /*bg gray 50*/
+  --shadow: hsl(222,9%,75%);
+}
+
+.dark{
+  --background: #000000;  /* Light background */
+  --color: #fff; /* Light text */
+  --text-1: hsl(219, 10%, 65%);       /* text-gray-500 */
+  --text-2: hsl(0, 0%, 99%);       /* text-gray-700 */
+  --underline: hsl(0, 0%, 65%);   /* text-gray-700 */
+  --herotext: hsl(0,0%,99%);
+  --herotext2: hsl(0,0%,80%);
+  --latesttext: hsl(214,14%, 95%);
+  --policytext: hsl(222,9%,99%);
+  --newsletter: hsl(0,0%, 65%);
+  --input: #000000;
+  --searchbar: #000000;
+  --shadow: hsl(210,10%,80%);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color);
+  padding-top: 104px;
+}
+
+* {
+  font-family: Outfit;
+  scroll-behavior: smooth;
+}
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+/*navbar active link underline*/
+a.active hr{
+  display: block;
+}
+
+@media (max-width:640px){
+  a.active{
+    background-color: black;
+    color: white;
+  }
+}
+
+.nav {
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.nav:hover {
+  box-shadow: 0 1px 10px var(--shadow); /* Light shadow on hover */
+}
+
