@@ -16,7 +16,15 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+// app.use(cors())     -- original code
+
+const corsOptions = {
+    origin: 'https://himmels-zenith-frontend.vercel.app', // Allow only the frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Enable cookies if needed
+};
+
+app.use(cors(corsOptions)); // Use CORS with the defined options
 
 // api endpoints
 app.use('/api/user', userRouter)
