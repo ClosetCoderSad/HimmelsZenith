@@ -8,7 +8,7 @@ const Hero = () => {
   const images = [assets.hero_img, assets.hero_img2];
 
   return (
-    <div className="w-full h-fit pt-8 sm:pt-5">
+    <div className="w-full h-fit pt-1 sm:pt-5">
       <div className="flex flex-col-reverse sm:flex-row border border-gray-400">
         {/* Hero Left Side */}
         <div className="w-full sm:w-1/2 sm:h-[550px] h-[330px] relative">
