@@ -26,13 +26,13 @@ const Product = () => {
   }, [productId, products]);
 
   return productData ? (
-    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
-      <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
+    <div className="border-t-2 pt-4 sm:pt-10 transition-opacity ease-in duration-500 opacity-100 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <div className="flex gap-2 sm:gap-12 flex-col sm:flex-row">
         {" "}
         {/* -------- Product Row ---------- */}
         {/* -------- Product Images ---------- */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
+          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-start gap-3 sm:gap-0 sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
               <img
                 key={index}
@@ -50,17 +50,17 @@ const Product = () => {
         {/* -------- Product Info ---------- */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
-          <p className="mt-5 text-3xl font-medium">
+          <p className="sm:mt-5 mt-2 text-xl sm:text-3xl font-medium">
             {currency}
             {productData.price}
           </p>
-          <p className="mt-5 text-text_1 md:w-4/5">
+          <p className="sm:mt-5 mt-2 text-sm sm:text-base text-text_1 md:w-4/5">
             {productData.description}
           </p>
           {/*---Size---*/}
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
-            <div className="flex gap-2">
+            <div className="flex gap-2"> 
               {productData.sizes.map((item, index) => (
                 <button
                   key={index}
@@ -107,7 +107,7 @@ const Product = () => {
       </div>
 
       <div className="mt-20 flex flex-col space-y-1">
-        <p className="font-semibold">
+        <p className="font-semibold sm:text-base text-sm">
           Measurements of {productData.name} (in inches):
         </p>
         <p className="text-text_1">M : Length-27 | Chest- 40</p>

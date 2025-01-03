@@ -20,6 +20,7 @@ const Cart = () => {
               _id: items,
               size: item,
               quantity: cartItems[items][item],
+              color: [items].color,  //added
             });
           }
         }
@@ -30,8 +31,8 @@ const Cart = () => {
   }, [cartItems, products]);
 
   return (
-    <div className="border-t pt-14">
-      <div className="text-2xl mb-3">
+    <div className="border-t pt-14 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <div className="sm:text-2xl text-xl mb-3">
         <Title text1={"YOUR"} text2={"CART"} />
       </div>
 
@@ -63,6 +64,9 @@ const Cart = () => {
                     </p>
                     <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50 text-black">
                       {item.size}
+                    </p>
+                    <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50 text-black">
+                      {item.color}
                     </p>
                   </div>
                 </div>

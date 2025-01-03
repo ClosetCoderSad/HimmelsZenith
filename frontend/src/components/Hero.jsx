@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import HeroCarousel from "../animations/HeroCarousel";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [currentImage, setCurrentImage] = useState(assets.hero_img); // Initial image
-  const [fade, setFade] = useState(true);
-
   const images = [assets.hero_img, assets.hero_img2];
 
   return (
-    <div className="w-full h-fit pt-8">
+    <div className="w-full h-fit pt-8 sm:pt-5">
       <div className="flex flex-col-reverse sm:flex-row border border-gray-400">
         {/* Hero Left Side */}
-        <div className="w-full sm:w-1/2 sm:h-[500px] h-[300px] relative">
+        <div className="w-full sm:w-1/2 sm:h-[550px] h-[330px] relative">
         <HeroCarousel images={images} duration={3000}/>  
         </div>
 

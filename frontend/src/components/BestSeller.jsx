@@ -13,12 +13,11 @@ const BestSeller = () => {
   }, [products]);
 
   return (
-    <div className="my-10" id="bestseller">
-      <div className="text-center text-3xl py-8">
+    <div className="my-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]" id="bestseller">
+      <div className="text-center text-xl sm:text-3xl py-8">
         <Title text1={"BEST"} text2={"SELLERS"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-latesttext">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam
-          voluptatum vero ad quis ipsum pariatur nostrum consectetur.
+         Our bestselling pieces combine elegance and versatility to make every moment extraordinary.
         </p>
       </div>
 
