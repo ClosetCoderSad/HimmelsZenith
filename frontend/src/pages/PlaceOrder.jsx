@@ -30,19 +30,21 @@ const PlaceOrder = () => {
     }
     
     const onSubmitHandler = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         try {
+            let orderItems = [];
 
-            let orderItems = []
-
-            for (const items in cartItems) {
-                for (const item in cartItems[items]) {
-                    if (cartItems[items][item] > 0) {
-                        const itemInfo = structuredClone(products.find(product => product._id === items))
-                        if (itemInfo) {
-                            itemInfo.size = item
-                            itemInfo.quantity = cartItems[items][item]
-                            orderItems.push(itemInfo)
+            for (const itemId in cartItems) {
+                for (const size in cartItems[itemId]) {
+                    for (const color in cartItems[itemId][size]) {
+                        if (cartItems[itemId][size][color] > 0) {
+                            const itemInfo = structuredClone(products.find(product => product._id === itemId));
+                            if (itemInfo) {
+                                itemInfo.size = size;
+                                itemInfo.color = color;
+                                itemInfo.quantity = cartItems[itemId][size][color];
+                                orderItems.push(itemInfo);
+                            }
                         }
                     }
                 }
@@ -52,7 +54,7 @@ const PlaceOrder = () => {
                 address: formData,
                 items: orderItems,
                 amount: getCartAmount() + delivery_fee
-            }
+            };
             
 
             switch (method) {
@@ -62,6 +64,7 @@ const PlaceOrder = () => {
                     const response = await axios.post(backendUrl + '/api/order/place',orderData,{headers:{token}})
                     if (response.data.success) {
                         setCartItems({})
+                        localStorage.removeItem('cartItems');
                         navigate('/orders')
                     } else {
                         toast.error(response.data.message)
@@ -73,6 +76,8 @@ const PlaceOrder = () => {
                     if (responseStripe.data.success) {
                         const {session_url} = responseStripe.data
                         window.location.replace(session_url)
+                        setCartItems({})
+                        localStorage.removeItem('cartItems');
                     } else {
                         toast.error(responseStripe.data.message)
                     }

@@ -13,15 +13,17 @@ const Cart = () => {
   useEffect(() => {
     if (products.length > 0) {
       const tempData = [];
-      for (const items in cartItems) {
-        for (const item in cartItems[items]) {
-          if (cartItems[items][item] > 0) {
-            tempData.push({
-              _id: items,
-              size: item,
-              quantity: cartItems[items][item],
-              color: [items].color,  //added
-            });
+      for (const itemId in cartItems) {
+        for (const size in cartItems[itemId]) {
+          for (const color in cartItems[itemId][size]) {
+            if (cartItems[itemId][size][color] > 0) {
+              tempData.push({
+                _id: itemId,
+                size: size,
+                color: color,
+                quantity: cartItems[itemId][size][color],
+              });
+            }
           }
         }
       }
@@ -78,6 +80,7 @@ const Cart = () => {
                     : updateQuantity(
                         item._id,
                         item.size,
+                        item.color,
                         Number(e.target.value)
                       )
                 }
@@ -87,7 +90,7 @@ const Cart = () => {
                 defaultValue={item.quantity}
               />
               <img
-                onClick={() => updateQuantity(item._id, item.size, 0)}
+                onClick={() => updateQuantity(item._id, item.size, item.color, 0)}
                 className="w-4 mr-4 sm:w-5 cursor-pointer"
                 src={assets.bin_icon}
                 alt=""
