@@ -16,7 +16,10 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: 'https://himmels-zenith.vercel.app',  // Adjust according to your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}))
 
 // api endpoints
 app.use('/api/user', userRouter)
